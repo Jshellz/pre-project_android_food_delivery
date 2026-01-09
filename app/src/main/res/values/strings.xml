@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AppRestoFood</string>
+    <string name="app_name">AppRestoFoodPreProject</string>
+    <string name="name_app">"FoodGood\nOrder your favorite food!"</string>
 </resources>

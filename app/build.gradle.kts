@@ -38,7 +38,7 @@ android {
     }
     kotlin {
         compileOptions {
-            JvmTarget.JVM_17
+            jvmToolchain(jdkVersion = 17)
         }
     }
     buildFeatures {
@@ -66,6 +66,7 @@ dependencies {
     // room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.compose.ui.text)
     ksp(libs.androidx.room.compiler)
 
     // vm
