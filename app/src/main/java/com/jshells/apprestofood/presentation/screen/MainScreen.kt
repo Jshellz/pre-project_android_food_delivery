@@ -1,7 +1,5 @@
 package com.jshells.apprestofood.presentation.screen
 
-import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,7 +19,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
@@ -103,9 +100,7 @@ fun Main() {
                             fontWeight = FontWeight.Bold
                         )
                         IconButton(
-                            onClick = {
-//                                Log.d("TAG", "CLICK")
-                            },
+                            onClick = {},
                         ) {
                             Image(
                                 painter = painterResource(R.drawable.test_profile),

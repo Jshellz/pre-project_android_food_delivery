@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.jshells.apprestofood.presentation.screen.MainScreen
+import com.jshells.apprestofood.presentation.screen.ProfileScreen
 import com.jshells.apprestofood.presentation.theme.AppRestoFoodTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,6 +15,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppRestoFoodTheme() {
                 MainScreen()
+                ProfileScreen()
             }
         }
     }
