@@ -1,6 +1,8 @@
 package com.jshells.apprestofood.presentation.screen
 
 import android.annotation.SuppressLint
+import android.util.Log
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +23,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.FilterList
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -44,6 +47,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -99,10 +103,12 @@ fun Main() {
                             fontWeight = FontWeight.Bold
                         )
                         IconButton(
-                            onClick = {},
+                            onClick = {
+//                                Log.d("TAG", "CLICK")
+                            },
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.AccountCircle,
+                            Image(
+                                painter = painterResource(R.drawable.test_profile),
                                 contentDescription = "profile",
                                 modifier = Modifier
                                     .size(32.dp)
@@ -193,7 +199,8 @@ fun SearchSection(
                 modifier = Modifier.weight(1f),
                 placeholder = {
                     Text(
-                        text = "Search dishes"
+                        text = "Search dishes",
+                        style = TextStyle.Default.copy(Color.Red),
                     )
                 },
                 leadingIcon = {
@@ -217,14 +224,15 @@ fun SearchSection(
 fun FilterButton() {
     Card(
         modifier = Modifier
-            .size(56.dp),
+            .padding(top = 10.dp)
+            .size(25.dp),
         shape = CircleShape,
         colors = CardDefaults.cardColors(
             containerColor = Color.Red
         ),
         onClick = {}
     ) {
-        Box(contentAlignment = Alignment.Center) {
+        Box(contentAlignment = Alignment.BottomEnd) {
             Icon(
                 imageVector = Icons.Default.FilterList,
                 contentDescription = "Filters",
@@ -246,7 +254,7 @@ fun CategoriesSection(
             text = "Category",
             modifier = Modifier
                 .padding(horizontal = 16.dp),
-            fontSize = 18.sp,
+            fontSize = 10.sp,
             fontWeight = FontWeight.Medium
         )
         Spacer(
@@ -256,7 +264,7 @@ fun CategoriesSection(
         LazyRow(
             modifier = Modifier
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(9.dp),
             contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
             items(categories) { category ->
@@ -285,7 +293,6 @@ fun CategoryChip(
     )
 }
 
-@SuppressLint("ResourceType")
 @Composable
 fun DishCard(
     dish: DishModel
@@ -314,7 +321,7 @@ fun DishCard(
             {
                 Text(
                     text = dish.category.title.take(3),
-                    fontSize = 24.sp,
+                    fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Red
                 )
@@ -325,22 +332,19 @@ fun DishCard(
                 verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
-                    text = "Test1",
-//                    text = dish.name,
+                    text = dish.name,
                     fontSize = 18.sp,
                     color = Color.Black,
                     maxLines = 2
                 )
                 Text(
-                    text = "TEST desc",
-//                    text = dish.description,
+                    text = dish.description,
                     fontSize = 18.sp,
                     color = Color.Black,
                     maxLines = 2
                 )
                 Text(
-                    text = "123f",
-//                    text = dish.price,
+                    text = dish.price,
                     fontSize = 18.sp,
                     color = Color.Black,
                     maxLines = 2
@@ -348,12 +352,14 @@ fun DishCard(
             }
             OutlinedButton(
                 onClick = {},
+                colors = ButtonColors(containerColor = Color.Red, contentColor = Color.White,
+                    disabledContentColor = Color.White, disabledContainerColor = Color.Red),
                 shape = CircleShape
             ) {
                 Text(
-//                    text = stringResource(R.drawable.add),
                     text = "Add",
-                    fontSize = 18.sp,
+                    fontSize = 15.sp,
+                    style = TextStyle.Default.copy(Color.White)
                 )
             }
         }
