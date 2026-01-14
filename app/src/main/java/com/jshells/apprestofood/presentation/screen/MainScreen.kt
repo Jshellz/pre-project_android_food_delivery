@@ -49,6 +49,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.util.rangeTo
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.jshells.apprestofood.R
 import com.jshells.apprestofood.domain.model.DishModel
 import com.jshells.apprestofood.presentation.FoodCategory
@@ -112,6 +116,9 @@ fun Main() {
                     }
                 }
             )
+        },
+        bottomBar = {
+            NavController()
         }
     ) { paddingValues ->
         LazyColumn(
@@ -171,6 +178,7 @@ fun Main() {
             }
         }
     }
+
 }
 
 @Composable
@@ -357,6 +365,21 @@ fun DishCard(
                     style = TextStyle.Default.copy(Color.White)
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun NavController() {
+
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = "home"
+    ) {
+        composable("home") {
+            NavController(navController)
         }
     }
 }
