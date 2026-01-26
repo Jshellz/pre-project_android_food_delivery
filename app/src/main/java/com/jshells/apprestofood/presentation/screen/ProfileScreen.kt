@@ -63,7 +63,10 @@ fun Profile() {
     }
 
     Box(
-        modifier = m.fillMaxSize().size(140.dp),
+        modifier = m
+            .fillMaxSize()
+            .size(140.dp)
+            .padding(top = 90.dp),
         contentAlignment = Alignment.TopCenter
     ) {
         Image(
@@ -89,4 +92,5 @@ fun PreviewProfileScreen() {
     PaymentDetails()
     OrderHistory()
     EditProfile()
+    NavController()
 }

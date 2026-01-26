@@ -7,10 +7,10 @@ import com.jshells.apprestofood.presentation.FoodCategory
 @Entity(tableName = "dish")
 data class DishModel (
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val name: String,
-    val description: String,
-    val price: String,
-    val category: FoodCategory,
-    val imageUrl: String = ""
+    var id: Int = 0,
+    var name: String,
+    var description: String,
+    var price: String,
+    var category: FoodCategory,
+    var imageUrl: String = ""
 )
