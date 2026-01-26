@@ -49,13 +49,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.util.rangeTo
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jshells.apprestofood.R
 import com.jshells.apprestofood.domain.model.DishModel
 import com.jshells.apprestofood.presentation.FoodCategory
+import com.jshells.apprestofood.presentation.navController.NavRoutes
 import com.jshells.apprestofood.presentation.theme.colors.Gray300
 
 @Composable
@@ -371,18 +372,17 @@ fun DishCard(
 
 @Composable
 fun NavController() {
-
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = NavRoutes.Home.route
     ) {
-        composable("home") {
-            NavController(navController)
+        composable(NavRoutes.Home.route) {
         }
     }
 }
+
 
 @Preview(showSystemUi = true)
 @Composable
